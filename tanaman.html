@@ -23,8 +23,13 @@
         }
 
         .sidebar {
-            height: 100vh;
+            width: 165px;
             background-color: #C8E6C9;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            flex-shrink: 0;
         }
 
         .sidebar .nav-link.active {
@@ -42,12 +47,6 @@
             width: 100%;
             border-top-left-radius: 20px;
             border-bottom-left-radius: 20px;
-        }
-
-        .sid ebar a:hover {
-            background: linear-gradient(to right, #ff8c00, #ffa500);
-            text-decoration: none;
-            padding: 10px;
         }
 
         .card {
@@ -102,7 +101,8 @@
                     <a class="nav-link text-black" href="dashboard.html"><i class="fas fa-home me-2"></i>Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-black active" href="tanaman.html"><i class="fas fa-leaf me-2"></i>Tanaman</a>
+                    <a class="nav-link text-black active" href="tanaman.html"><i
+                            class="fas fa-leaf me-2"></i>Tanaman</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-black" href="perawatan.html"><i class="fas fa-calendar-alt me-2"></i>
@@ -301,7 +301,7 @@
                         </div>
 
                         <!-- Tombol Aksi Batal & Simpan -->
-                        <div class="d-flex justify-content-end gap-2 mt-4"> 
+                        <div class="d-flex justify-content-end gap-2 mt-4">
                             <button type="button" class="btn w-50 py-2 px-4" data-bs-dismiss="modal"
                                 style="background-color: #f8c2c2; color: #000; border: none; border-radius: 8px;">Batal</button>
                             <button type="submit" class="btn w-50 py-2 px-4"
