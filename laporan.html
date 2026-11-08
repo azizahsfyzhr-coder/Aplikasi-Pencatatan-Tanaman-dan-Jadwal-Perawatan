@@ -1,0 +1,332 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan - PlantCare</title>
+
+    <link rel="stylesheet" href="laporan.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+
+    <div class="brand">
+        <img src="logo.png" alt="Logo PlantCare">
+
+        <div>
+            <b>Aplikasi Pencatatan Tanaman dan</b>
+            <b>Jadwal Perawatan</b>
+        </div>
+    </div>
+
+    <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Cari tanaman, Perawatan, atau Lainnya...">
+    </div>
+
+    <div class="header-right">
+        <i class="fas fa-user-circle"></i>
+        <span>Nama Pengguna</span>
+        <i class="fas fa-bell"></i>
+        <i class="fas fa-cog"></i>
+    </div>
+
+</header>
+
+
+<!-- SIDEBAR -->
+<div class="layout">
+
+    <aside class="sidebar">
+
+        <nav>
+
+            <a href="dashboard.html">
+                <i class="fas fa-home"></i>
+                Dashboard
+            </a>
+
+            <a href="tanaman.html">
+                <i class="fas fa-leaf"></i>
+                Tanaman
+            </a>
+
+            <a href="perawatan.html">
+                <i class="fas fa-calendar-alt"></i>
+                Perawatan
+            </a>
+
+            <a href="riwayat.html">
+                <i class="fas fa-history"></i>
+                Riwayat
+            </a>
+
+            <a href="laporan.html" class="active">
+                <i class="fas fa-clipboard-list"></i>
+                Laporan
+            </a>
+
+            <a href="#">
+                <i class="fas fa-sign-out-alt"></i>
+                Logout
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- KONTEN -->
+    <main class="content">
+
+        <h1>Laporan</h1>
+        <p class="breadcrumb">Beranda &gt; Laporan</p>
+
+
+        <!-- FILTER -->
+        <section class="filter-box">
+
+            <div class="filter-item">
+                <label>Periode</label>
+
+                <div class="date-input">
+                    <input type="date" id="tanggalMulai" value="2026-09-21">
+                    <span>-</span>
+                    <input type="date" id="tanggalAkhir" value="2026-09-25">
+                </div>
+            </div>
+
+            <div class="filter-item">
+                <label>Jenis Tanaman</label>
+
+                <select id="filterTanaman">
+                    <option value="">Semua</option>
+                    <option>Bunga</option>
+                    <option>Sayuran</option>
+                    <option>Buah-buahan</option>
+                </select>
+            </div>
+
+            <div class="filter-item">
+                <label>Lokasi</label>
+
+                <select id="filterLokasi">
+                    <option value="">Semua</option>
+                    <option>Taman Depan</option>
+                    <option>Halaman Belakang</option>
+                    <option>Pot Teras</option>
+                </select>
+            </div>
+
+            <div class="filter-item">
+                <label>Jenis Perawatan</label>
+
+                <select id="filterPerawatan">
+                    <option value="">Semua</option>
+                    <option>Penyiraman</option>
+                    <option>Pemupukan</option>
+                    <option>Pemangkasan</option>
+                </select>
+            </div>
+
+        </section>
+
+
+        <!-- KARTU RINGKASAN -->
+        <section class="summary">
+
+            <div class="summary-card">
+                <div class="summary-icon">
+                    <i class="fas fa-seedling"></i>
+                </div>
+
+                <div>
+                    <h4>Total Tanaman</h4>
+                    <strong>17</strong>
+                    <small>tanaman</small>
+                </div>
+            </div>
+
+
+            <div class="summary-card">
+                <div class="summary-icon">
+                    <i class="far fa-calendar-alt"></i>
+                </div>
+
+                <div>
+                    <h4>Total Perawatan</h4>
+                    <strong id="totalPerawatan">5</strong>
+                    <small>kegiatan</small>
+                </div>
+            </div>
+
+
+            <div class="summary-card">
+                <div class="summary-icon">
+                    <i class="far fa-check-circle"></i>
+                </div>
+
+                <div>
+                    <h4>Perawatan Selesai</h4>
+                    <strong id="totalSelesai">2</strong>
+                    <small>kegiatan</small>
+                </div>
+            </div>
+
+
+            <div class="summary-card">
+                <div class="summary-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+
+                <div>
+                    <h4>Belum Selesai</h4>
+                    <strong id="totalBelum">3</strong>
+                    <small>kegiatan</small>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- GRAFIK -->
+        <section class="report-section">
+
+            <h3>Rekap Aktivitas Perawatan</h3>
+
+            <div class="chart-container">
+                <img src="grafik.png" alt="Grafik Aktivitas Perawatan">
+            </div>
+
+        </section>
+
+
+        <!-- TABEL LAPORAN -->
+        <section class="report-section">
+
+            <h3>Detail Laporan Perawatan</h3>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Tanggal</th>
+                            <th>Jenis<br>Tanaman</th>
+                            <th>Nama<br>Tanaman</th>
+                            <th>Jenis Perawatan</th>
+                            <th>Keterangan</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="reportTable">
+
+                        <tr data-lokasi="Taman Depan">
+                            <td>21/09/2026</td>
+                            <td>Bunga</td>
+                            <td>Mawar</td>
+                            <td>Penyiraman</td>
+                            <td>Penyiraman 50 ml dilakukan</td>
+                            <td><span class="status selesai">✓ Selesai</span></td>
+                            <td>
+                                <button class="edit" onclick="editData(this)">
+                                    <i class="fas fa-pen"></i>
+                                </button>
+                                <button class="delete" onclick="hapusData(this)">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr data-lokasi="Taman Depan">
+                            <td>22/09/2026</td>
+                            <td>Bunga</td>
+                            <td>Mawar</td>
+                            <td>Pemupukan</td>
+                            <td>Pupuk organik diberikan</td>
+                            <td><span class="status selesai">✓ Selesai</span></td>
+                            <td>
+                                <button class="edit" onclick="editData(this)">
+                                    <i class="fas fa-pen"></i>
+                                </button>
+                                <button class="delete" onclick="hapusData(this)">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr data-lokasi="Halaman Belakang">
+                            <td>23/09/2026</td>
+                            <td>Sayuran</td>
+                            <td>Cabai</td>
+                            <td>Penyiraman</td>
+                            <td>Disiram 100 ml</td>
+                            <td><span class="status terjadwal">◷ Terjadwal</span></td>
+                            <td>
+                                <button class="edit" onclick="editData(this)">
+                                    <i class="fas fa-pen"></i>
+                                </button>
+                                <button class="delete" onclick="hapusData(this)">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr data-lokasi="Halaman Belakang">
+                            <td>24/09/2026</td>
+                            <td>Sayuran</td>
+                            <td>Cabai</td>
+                            <td>Pemupukan</td>
+                            <td>Pemupukan NPK telah diberikan</td>
+                            <td><span class="status terjadwal">◷ Terjadwal</span></td>
+                            <td>
+                                <button class="edit" onclick="editData(this)">
+                                    <i class="fas fa-pen"></i>
+                                </button>
+                                <button class="delete" onclick="hapusData(this)">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr data-lokasi="Pot Teras">
+                            <td>25/09/2026</td>
+                            <td>Buah-buahan</td>
+                            <td>Strawberry</td>
+                            <td>Pemangkasan</td>
+                            <td>Pangkas daun kering</td>
+                            <td><span class="status menunggu">◷ Menunggu</span></td>
+                            <td>
+                                <button class="edit" onclick="editData(this)">
+                                    <i class="fas fa-pen"></i>
+                                </button>
+                                <button class="delete" onclick="hapusData(this)">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="laporan.js"></script>
+
+</body>
+</html>
